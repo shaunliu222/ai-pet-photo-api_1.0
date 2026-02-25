@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+*.pyo
+output/
+.git/
+.gitignore
+*.md
+.env
+.venv/
+venv/
