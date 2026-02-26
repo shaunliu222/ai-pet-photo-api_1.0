@@ -3,8 +3,8 @@ AI合照生图-智能体 配置文件
 """
 import os
 
-# 智谱AI API配置
-ZHIPU_API_KEY = "0c2259755c3446afbf508c19fcee939c.fPWCmzXHimidSIOC"
+# 智谱AI API配置 - 使用环境变量
+ZHIPU_API_KEY = os.environ.get("ZHIPU_API_KEY", "0c2259755c3446afbf508c19fcee939c.fPWCmzXHimidSIOC")
 
 # API端点
 ZHIPU_API_BASE = "https://open.bigmodel.cn/api/paas/v4"
@@ -13,10 +13,10 @@ ZHIPU_API_BASE = "https://open.bigmodel.cn/api/paas/v4"
 VISION_MODEL = "glm-4v-flash"  # 多模态视觉模型
 IMAGE_MODEL = "cogview-3-flash"  # 图像生成模型 (免费)
 
-# 目录配置
+# 目录配置 - 使用/tmp目录作为输出目录（Render只读文件系统）
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 PETS_DIR = os.path.join(BASE_DIR, "pets")
-OUTPUT_DIR = os.path.join(BASE_DIR, "output")
+OUTPUT_DIR = os.environ.get("OUTPUT_DIR", "/tmp/output")
 
 # 亲密互动场景模板
 INTERACTION_TEMPLATES = [
