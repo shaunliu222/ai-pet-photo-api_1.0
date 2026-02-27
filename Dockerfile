@@ -23,11 +23,11 @@ RUN pip install --no-cache-dir -r requirements.txt
 # 复制应用代码
 COPY . .
 
-# 创建输出目录
-RUN mkdir -p /app/output
+# 创建临时输出目录（Render使用/tmp）
+RUN mkdir -p /tmp/output
 
 # 暴露端口
 EXPOSE 8000
 
-# 启动命令
-CMD ["uvicorn", "api:app", "--host", "0.0.0.0", "--port", "8000"]
+# 启动命令 - 使用环境变量PORT
+CMD uvicorn api:app --host 0.0.0.0 --port ${PORT:-8000}
