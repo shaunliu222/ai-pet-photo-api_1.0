@@ -2,10 +2,13 @@ services:
   - type: web
     name: ai-photo-api
     env: python
+    region: oregon
     buildCommand: pip install -r requirements.txt
     startCommand: uvicorn api:app --host 0.0.0.0 --port $PORT
-    envVars:
-      - key: PYTHON_VERSION
-        value: 3.10.0
     plan: free
     healthCheckPath: /
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.10.13
+      - key: ZHIPU_API_KEY
+        sync: false
