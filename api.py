@@ -37,8 +37,12 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# 确保输出目录存在
-ensure_dir(OUTPUT_DIR)
+# 确保输出目录存在（添加错误处理）
+try:
+    ensure_dir(OUTPUT_DIR)
+    print(f"✓ 输出目录已创建: {OUTPUT_DIR}")
+except Exception as e:
+    print(f"⚠ 创建输出目录失败: {e}")
 
 
 # ============== 数据模型 ==============
