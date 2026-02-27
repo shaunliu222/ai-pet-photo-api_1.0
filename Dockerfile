@@ -29,5 +29,5 @@ RUN mkdir -p /tmp/output
 # 暴露端口
 EXPOSE 8000
 
-# 启动命令 - 使用环境变量PORT
-CMD uvicorn api:app --host 0.0.0.0 --port ${PORT:-8000}
+# 启动命令
+CMD ["uvicorn", "api:app", "--host", "0.0.0.0", "--port", "8000"]
